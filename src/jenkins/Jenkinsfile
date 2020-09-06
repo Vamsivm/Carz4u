@@ -1,0 +1,28 @@
+def mvn_version = 'jenkins-maven'
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+               
+                withEnv( ["PATH+MAVEN=${tool mvn_version}/bin"] ) {
+                 //sh "mvn clean package"
+                    sh 'mvn -B -DskipTests clean package'
+                }
+                
+            }
+        }
+        
+		stage('Deploy') {
+            steps {
+                pushToCloudFoundry(
+			  target: 'https://api.run.pivotal.io',
+			  organization: 'Vamsi11',
+			  cloudSpace: 'development',
+			  credentialsId: 'pcf',
+			  manifestChoice: [manifestFile: 'jenkins/manifest.yml']
+			 )
+            }
+        }
+    }
+}
