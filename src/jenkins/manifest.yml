@@ -1,5 +1,5 @@
 applications:
-- name: demo
+- name: Carz4u
   instances: 1
   memory: 1G
   path: /var/jenkins_home/workspace/pipelineJob/target/Carz4u-0.0.1-SNAPSHOT.jar
