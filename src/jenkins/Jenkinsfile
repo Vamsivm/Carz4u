@@ -20,7 +20,7 @@ pipeline {
 			  organization: 'Vamsi11',
 			  cloudSpace: 'development',
 			  credentialsId: 'pcf',
-			  manifestChoice: [manifestFile: 'jenkins/manifest.yml']
+			  manifestChoice: [manifestFile: 'src/jenkins/manifest.yml']
 			 )
             }
         }
