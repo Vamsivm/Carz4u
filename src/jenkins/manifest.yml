@@ -7,3 +7,5 @@ applications:
   routes:
   - route: Carz4u.cfapps.io
   buildpack: https://github.com/cloudfoundry/java-buildpack
+  services:
+  - mysql
